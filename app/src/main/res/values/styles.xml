@@ -1,0 +1,9 @@
+<resources>
+    <style name="Kaptal" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/colourAccent</item>
+        <item name="colorPrimary">@color/colourPrimary</item>
+        <item name="colorPrimaryDark">@color/colourPrimaryDark</item>
+        <item name="android:textColorPrimary">@color/colourPrimaryText</item>
+        <item name="android:textColorSecondary">@color/colourSecondaryText</item>
+    </style>
+</resources>
