@@ -8,11 +8,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context="kaptal.gabrielrunescape.com.br.view.HomeActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/home_toolbar"
+    <ListView
+        android:id="@+id/listview_home"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="?attr/actionBarTheme"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize" />
+        android:layout_height="match_parent" />
 </LinearLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu tools:context=".view.HomeActivity"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        app:showAsAction="never"
+        android:orderInCategory="100"
+        android:id="@+id/item_refresh"
+        android:title="@string/menu_refresh"
+        android:icon="@drawable/ic_refresh_24dp">
+    </item>
+
+    <item
+        app:showAsAction="never"
+        android:id="@+id/item_add"
+        android:orderInCategory="101"
+        android:title="@string/menu_add"
+        android:icon="@drawable/ic_add_24dp">
+    </item>
+
+    <item
+        app:showAsAction="never"
+        android:id="@+id/item_about"
+        android:orderInCategory="102"
+        android:title="@string/menu_about"
+        android:icon="@drawable/ic_info_outline_24dp">
+    </item>
+</menu>

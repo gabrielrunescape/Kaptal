@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Kaptal</string>
+
+    <!-- toolbar_home.xml -->
+    <string name="menu_add">Inserir</string>
+    <string name="menu_about">Sobre</string>
+    <string name="menu_refresh">Atualizar</string>
 </resources>

@@ -4,8 +4,9 @@
     <color name="colourAccent">#00BCD4</color>
     <color name="colourPrimary">#2196F3</color>
     <color name="colourDivider">#BDBDBD</color>
-    <color name="colourPrimaryText">#212121</color>
+    <color name="colourPrimaryText">#FFFFFF</color>
     <color name="colourPrimaryDark">#1976D2</color>
     <color name="colourPrimaryLight">#BBDEFB</color>
     <color name="colourSecondaryText">#757575</color>
+    <color name="colourPrimaryInformation">#212121</color>
 </resources>

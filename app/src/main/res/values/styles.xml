@@ -1,5 +1,5 @@
 <resources>
-    <style name="Kaptal" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Kaptal" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorAccent">@color/colourAccent</item>
         <item name="colorPrimary">@color/colourPrimary</item>
         <item name="colorPrimaryDark">@color/colourPrimaryDark</item>
