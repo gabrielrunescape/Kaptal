@@ -1,6 +1,7 @@
 package kaptal.gabrielrunescape.com.br.object;
 
 import java.util.Date;
+import java.util.Calendar;
 import java.io.Serializable;
 
 /**
@@ -73,5 +74,43 @@ public class Transaction implements Serializable{
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    /**
+     * Converte o número do mês nas abreviaçõs do mês em pt_BR.
+     * @return Abreviação do mês com 3 caracteres.
+     */
+    public String getMonth() {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+
+        switch (cal.get(Calendar.MONTH)) {
+            case 1:
+                return "JAN";
+            case 2:
+                return "FEV";
+            case 3:
+                return "MAR";
+            case 4:
+                return "ABR";
+            case 5:
+                return "MAI";
+            case 6:
+                return "JUN";
+            case 7:
+                return "JUL";
+            case 8:
+                return "AGO";
+            case 9:
+                return "SET";
+            case 10:
+                return "OUT";
+            case 11:
+                return "NOV";
+            case 12:
+                return "DEZ";
+            default:
+                return "N/D";
+        }
     }
 }

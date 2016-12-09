@@ -59,9 +59,10 @@ public class TransactionAdapter extends ArrayAdapter<Transaction> {
         Calendar cal = Calendar.getInstance();
         cal.setTime(transaction.getDate());
 
-        day.setText(cal.get(Calendar.DAY_OF_MONTH) + "");
-        month.setText(cal.get(Calendar.MONTH) + "");
+        month.setText(transaction.getMonth());
         amount.setText(transaction.getAmount() + "");
+        category.setText(transaction.getCategory() + "");
+        day.setText(cal.get(Calendar.DAY_OF_MONTH) + "");
         description.setText(transaction.getDescription());
 
         return itemView;
