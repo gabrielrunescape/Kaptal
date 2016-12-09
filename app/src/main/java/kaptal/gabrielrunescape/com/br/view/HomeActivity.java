@@ -1,13 +1,15 @@
 package kaptal.gabrielrunescape.com.br.view;
 
+import java.util.Date;
+import java.util.List;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+import java.util.ArrayList;
+import android.widget.ListView;
 import kaptal.gabrielrunescape.com.br.R;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
+import kaptal.gabrielrunescape.com.br.object.Transaction;
+import kaptal.gabrielrunescape.com.br.adapter.TransactionAdapter;
 
 /**
  * <h1>Classe Home Activity</h1>
@@ -37,6 +39,22 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        List<Transaction> transactions = new ArrayList<>();
+
+        for (int i = 0; i < 10; i++) {
+            Transaction t = new Transaction();
+            t.setAmount(-21.56 * (-i));
+            t.setDescription("Descrição número " + i + ", só otário.");
+            t.setDate(new Date(116, i + 1, i * 3));
+
+            transactions.add(t);
+        }
+
+        TransactionAdapter adapter = new TransactionAdapter(this, transactions);
+
+        ListView lista = (ListView) findViewById(R.id.listview_home);
+        lista.setAdapter(adapter);
     }
 
     /**
