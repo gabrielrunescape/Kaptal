@@ -8,6 +8,7 @@ import android.view.View;
 import java.util.ArrayList;
 import android.widget.Toast;
 import android.view.MenuItem;
+import android.content.Intent;
 import android.widget.ListView;
 import android.widget.AdapterView;
 import android.content.DialogInterface;
@@ -168,12 +169,19 @@ public class HomeActivity extends AppCompatActivity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
         int id = item.getItemId();
 
         switch (id) {
+            case R.id.item_add:
+                intent = new Intent(getApplicationContext(), TransactionActivity.class);
+                startActivity(intent);
+                break;
             default:
                 Toast.makeText(this, "Função não programada!", Toast.LENGTH_LONG).show();
-                return super.onOptionsItemSelected(item);
+                break;
         }
+
+        return super.onOptionsItemSelected(item);
     }
 }
