@@ -18,16 +18,9 @@
     <string name="et_date">Data da transação</string>
     <string name="spinner_category">Categoria</string>
     <string-array name="array_category">
-        <item>Alimentação</item>
-        <item>Casa</item>
-        <item>Educação</item>
-        <item>Eletrônicos</item>
-        <item>Lazer</item>
-        <item>Outros</item>
-        <item>Saúde</item>
+        <item>Compras</item>
+        <item>Pagamentos</item>
+        <item>Remuneração</item>
         <item>Serviços</item>
-        <item>Transportes</item>
-        <item>Vestuário</item>
-        <item>Viagens</item>
     </string-array>
 </resources>

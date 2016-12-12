@@ -4,16 +4,12 @@ import java.util.Date;
 import java.util.List;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.View;
 import java.util.ArrayList;
 import android.widget.Toast;
 import android.view.MenuItem;
 import android.content.Intent;
 import android.widget.ListView;
-import android.widget.AdapterView;
-import android.content.DialogInterface;
 import kaptal.gabrielrunescape.com.br.R;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import kaptal.gabrielrunescape.com.br.object.Transaction;
 import kaptal.gabrielrunescape.com.br.adapter.TransactionAdapter;
@@ -63,90 +59,6 @@ public class HomeActivity extends AppCompatActivity {
 
         final ListView lista = (ListView) findViewById(R.id.listview_home);
         lista.setAdapter(adapter);
-
-        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            /**
-             * Sobreescreve o método <strong>onItemClick()</strong>.
-             * Ao clicar no item, encaminha para uma tela permitindo sua visualização.
-             *
-             * @param parent ListView.
-             * @param view ItemAdapter clicado.
-             * @param position posição do ItemAdapter.
-             * @param id Identificador do ListView.
-             */
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                for (int i = 0; i < lista.getChildCount(); i++) {
-                    if(position == i ){
-                        lista.getChildAt(i).setBackgroundResource(R.color.colourPrimaryLight);
-                    }else{
-                        lista.getChildAt(i).setBackgroundResource(R.color.colourIcons);
-                    }
-                }
-            }
-        });
-
-        lista.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            /**
-             * Sobreescreve o método <strong>onItemLongClick()</strong>.
-             * Ao pressionar o item, exibe um AlertDialog.
-             *
-             * @param parent ListView.
-             * @param view ItemAdapter clicado.
-             * @param position posição do ItemAdapter.
-             * @param id Identificador do ListView.
-             * @return Verdaeiro.
-             */
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                choiceAlertDialog(view);
-
-                return true;
-            }
-        });
-    }
-
-    /**
-     * Cria método quando pressionado o ItemAdapter exibe um AlertDialog com algumas opções.
-     */
-    final void choiceAlertDialog(final View parent) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Escolha uma ação");
-
-        parent.setBackgroundResource(R.color.colourPrimaryLight);
-        String[] options = new String[] { "Apagar", "Editar", "Inserir", "Visualizar" };
-
-        builder.setItems(options, new DialogInterface.OnClickListener() {
-            /**
-             * Ao clicar em um dos itens, encaminha para uma Intent especifica da ação.
-             *
-             * @param dialog AlertDialog.Builder utilizado.
-             * @param which Posição do item clicado.
-             */
-            public void onClick(DialogInterface dialog, int which) {
-                switch (which) {
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                        Toast.makeText(getApplicationContext(), "Função não programada!", Toast.LENGTH_LONG).show();
-                        break;
-                }
-            }
-        });
-
-        builder.show().setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            /**
-             * Sobreescreve um método interno de <strong>DialogInterface.OnDismissListener()</strong>.
-             * Ao perder o foco retorna o ItemAdapter com padrão.
-             *
-             * @param dialog AlertDialog.Builder utilizado.
-             */
-            public void onDismiss(DialogInterface dialog) {
-                parent.setBackgroundResource(R.color.colourIcons);
-            }
-        });
     }
 
     /**

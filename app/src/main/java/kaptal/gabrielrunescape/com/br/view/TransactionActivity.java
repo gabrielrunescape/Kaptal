@@ -6,6 +6,7 @@ import android.view.View;
 import java.util.Calendar;
 import android.widget.Toast;
 import android.view.MenuItem;
+import android.text.InputType;
 import android.widget.EditText;
 import android.widget.DatePicker;
 import android.app.DatePickerDialog;
@@ -45,17 +46,26 @@ public class TransactionActivity extends AppCompatActivity {
         super.onResume();
 
         et_date = (EditText) findViewById(R.id.et_date);
+        et_date.setInputType(InputType.TYPE_NULL);
 
-        et_date.setOnClickListener(new View.OnClickListener() {
+        et_date.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
-            public void onClick(View v) {
-                final Calendar c = Calendar.getInstance();
-                mYear = c.get(Calendar.YEAR);
-                mMonth = c.get(Calendar.MONTH);
-                mDay = c.get(Calendar.DAY_OF_MONTH);
+            /**
+             * Sobreescreve o método <strong>onFocusChange()</strong>.
+             * Que ao mudar o foco realiza determinada ação.
+             *
+             * @param v View no qual é usada.
+             * @param hasFocus Verdadeiro se tiver foco, falso para o contrário.
+             */
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    final Calendar c = Calendar.getInstance();
+                    mYear = c.get(Calendar.YEAR);
+                    mMonth = c.get(Calendar.MONTH);
+                    mDay = c.get(Calendar.DAY_OF_MONTH);
 
-                // Launch Date Picker Dialog
-                DatePickerDialog dpd = new DatePickerDialog(TransactionActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    // Launch Date Picker Dialog
+                    DatePickerDialog dpd = new DatePickerDialog(TransactionActivity.this, new DatePickerDialog.OnDateSetListener() {
                         @Override
                         /**
                          * Código copiado de:
@@ -80,7 +90,8 @@ public class TransactionActivity extends AppCompatActivity {
                         }
                     }, mYear, mMonth, mDay);
 
-                dpd.show();
+                    dpd.show();
+                }
             }
         });
     }

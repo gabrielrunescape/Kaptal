@@ -3,7 +3,7 @@
         <item name="colorAccent">@color/colourAccent</item>
         <item name="colorPrimary">@color/colourPrimary</item>
         <item name="colorPrimaryDark">@color/colourPrimaryDark</item>
-        <item name="android:textColorPrimary">@color/colourPrimaryText</item>
         <item name="android:textColorSecondary">@color/colourSecondaryText</item>
+        <item name="android:textColorPrimary">@color/colourPrimaryInformation</item>
     </style>
 </resources>
