@@ -1,16 +1,15 @@
 package kaptal.gabrielrunescape.com.br.view;
 
-import java.util.Date;
 import java.util.List;
 import android.os.Bundle;
 import android.view.Menu;
-import java.util.ArrayList;
 import android.widget.Toast;
 import android.view.MenuItem;
 import android.content.Intent;
 import android.widget.ListView;
 import kaptal.gabrielrunescape.com.br.R;
 import android.support.v7.app.AppCompatActivity;
+import kaptal.gabrielrunescape.com.br.dao.TransactionDAO;
 import kaptal.gabrielrunescape.com.br.object.Transaction;
 import kaptal.gabrielrunescape.com.br.adapter.TransactionAdapter;
 
@@ -21,10 +20,12 @@ import kaptal.gabrielrunescape.com.br.adapter.TransactionAdapter;
  * todos os componentes necessários para execução da aplicação necessita.
  *
  * @author Gabriel Filipe
- * @version 0.1
+ * @version 0.2
  * @since 2016-12-08
  */
 public class HomeActivity extends AppCompatActivity {
+    private TransactionDAO dao;
+
     /**
      * Sobreescreve o método extendido <strong>onCreate()</strong>.
      *
@@ -34,6 +35,9 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        dao = new TransactionDAO(this);
+        dao.open(true);
     }
 
     /**
@@ -41,20 +45,10 @@ public class HomeActivity extends AppCompatActivity {
      */
     @Override
     protected void onResume() {
+        dao.open(true);
         super.onResume();
 
-        List<Transaction> transactions = new ArrayList<>();
-
-        for (int i = 0; i < 10; i++) {
-            Transaction t = new Transaction();
-            t.setAmount(-12.6 * (-i));
-            t.setCategory(2 * i);
-            t.setDescription("Descrição número " + i + ", só tem otário.");
-            t.setDate(new Date(116, i + 1, i * 3));
-
-            transactions.add(t);
-        }
-
+        List<Transaction> transactions = dao.getAll();
         TransactionAdapter adapter = new TransactionAdapter(this, transactions);
 
         final ListView lista = (ListView) findViewById(R.id.listview_home);

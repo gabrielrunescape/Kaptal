@@ -1,5 +1,6 @@
 package kaptal.gabrielrunescape.com.br.object;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Calendar;
 import java.io.Serializable;
@@ -11,10 +12,11 @@ import java.io.Serializable;
  * uma transação (movimentação) dentro da aplicação.
  *
  * @autor Gabriel Filipe
- * @version 0.1
+ * @version 0.2
  * @since 2016-12-09
  */
 public class Transaction implements Serializable{
+    private long ID;
     private Date date;
     private int category;
     private double amount;
@@ -56,6 +58,14 @@ public class Transaction implements Serializable{
     }
 
     /**
+     * @return Obtem a data no padrão ISO (Banco de dados).
+     */
+    public String getDateISO() {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        return format.format(date);
+    }
+
+    /**
      * @param date Insere a data da movimentação.
      */
     public void setDate(Date date) {
@@ -74,6 +84,20 @@ public class Transaction implements Serializable{
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    /**
+     * @return Obtem o identificador da transação.
+     */
+    public long getID() {
+        return ID;
+    }
+
+    /**
+     * @param ID Insere um identificador à transação.
+     */
+    public void setID(long ID) {
+        this.ID = ID;
     }
 
     /**
