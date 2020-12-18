@@ -1,7 +1,0 @@
-<resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
-    <item name="weight_textView" format="float" type="dimen">2.5</item>
-    <item name="weight_LinearLayout" format="float" type="dimen">7</item>
-</resources>
